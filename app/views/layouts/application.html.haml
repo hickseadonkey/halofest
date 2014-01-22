@@ -13,7 +13,9 @@
     <![endif]-->
     = csrf_meta_tags
   %body
-    = yield
+    .container
+      = render 'layouts/navbar'
+      = yield
 
   #load_javascripts
     = javascript_include_tag "application", "data-turbolinks-track" => true
