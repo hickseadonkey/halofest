@@ -7,8 +7,6 @@
     %th Team name
     %th Is admin
     %th
-    %th
-    %th
 
   - @users.each do |user|
     %tr
@@ -16,10 +14,11 @@
       %td= user.email
       %td= user.team_name
       %td= tick_helper(user.is_admin)
-      %td= link_to 'Show', user
-      %td= link_to 'Edit', edit_user_path(user)
-      %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td
+        = link_to 'Show', user, class: 'btn btn-xs btn-info'
+        = link_to 'Edit', edit_user_path(user), class: 'btn btn-xs btn-warning'
+        = link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-xs btn-danger'
 
 %br
 
-= link_to 'New User', new_user_path
+= link_to 'New User', new_user_path, class: 'btn btn-primary'
