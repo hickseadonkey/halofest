@@ -1,6 +1,6 @@
-%h1 Listing users
+%h1 Users
 
-%table
+%table.table.table-striped
   %tr
     %th Name
     %th Email
@@ -15,7 +15,7 @@
       %td= user.name
       %td= user.email
       %td= user.team_name
-      %td= user.is_admin
+      %td= tick_helper(user.is_admin)
       %td= link_to 'Show', user
       %td= link_to 'Edit', edit_user_path(user)
       %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
