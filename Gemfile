@@ -33,6 +33,7 @@ group :doc do
 end
 
 gem 'haml-rails'
+gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'rspec-rails'
