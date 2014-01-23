@@ -1,5 +1,7 @@
 Halofest::Application.routes.draw do
 
+  resources :players
+
   resources :users
 
   root "home#index"
