@@ -1,12 +1,32 @@
 %p#notice= notice
 
 %p
-  %b First name:
-  = @player.first_name
-%p
-  %b Last name:
-  = @player.last_name
+  %b Name
+  = @player.full_name
+= link_to "Edit", edit_player_path(@player), class: "btn btn-xs btn-warning"
 
-= link_to 'Edit', edit_player_path(@player)
-\|
-= link_to 'Back', players_path
+- if @player.player_stats.any?
+  %h3 Stats
+  %table.table.table-bordered.table-striped
+    %thead
+      %tr
+        %th Year
+        %th Fantasy Pts (total)
+        %th Fantasy Pts (average)
+        %th
+    %tbody
+      - @player.player_stats.order("year DESC").each do |stats|
+        %tr
+          %td= stats.year
+          %td= stats.fpts_total
+          %td= stats.fpts_avg
+          %td
+            = link_to "Edit", edit_player_player_stat_path(@player, stats), class: "btn btn-xs btn-warning"
+            = link_to "Delete", player_player_stat_path(@player, stats), method: :delete,
+                      class: "btn btn-xs btn-danger", data: { confirm: "Are you sure?" }
+
+  = link_to "New Stats Year", new_player_player_stat_path(@player), class: "btn btn-sm btn-primary"
+
+%br
+%br
+= link_to "Back", players_path

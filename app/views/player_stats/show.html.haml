@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Player:
+  = @player_stat.player_id
+%p
+  %b Year:
+  = @player_stat.year
+%p
+  %b Fpts total:
+  = @player_stat.fpts_total
+%p
+  %b Fpts avg:
+  = @player_stat.fpts_avg
+
+= link_to 'Edit', edit_player_stat_path(@player_stat)
+\|
+= link_to 'Back', player_stats_path

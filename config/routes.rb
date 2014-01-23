@@ -1,6 +1,8 @@
 Halofest::Application.routes.draw do
 
-  resources :players
+  resources :players do
+    resources :player_stats, except:[:show]
+  end
 
   resources :users
 

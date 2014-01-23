@@ -1,0 +1,25 @@
+- if @player_stats.new_record?
+  - url = player_player_stats_path(@player, @player_stats)
+- else
+  - url = player_player_stat_path(@player, @player_stats)
+
+= form_for @player_stats, url: url do |f|
+
+  - if @player_stats.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@player_stats.errors.count, "error")} prohibited this player_stat from being saved:"
+      %ul
+        - @player_stats.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :year
+    = f.number_field :year
+  .field
+    = f.label :fpts_total
+    = f.text_field :fpts_total
+  .field
+    = f.label :fpts_avg
+    = f.text_field :fpts_avg
+  .actions
+    = f.submit 'Save'
