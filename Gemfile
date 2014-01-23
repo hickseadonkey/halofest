@@ -35,7 +35,10 @@ end
 
 gem 'haml-rails'
 gem 'bootstrap-sass'
-gem 'rails_12factor'
+
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   gem 'rspec-rails'
