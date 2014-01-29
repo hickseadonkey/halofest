@@ -12,9 +12,10 @@
     %tr
       %td= roster.user_id
       %td= roster.draft_id
-      %td= link_to 'Show', roster, class: 'btn btn-xs btn-info'
-      %td= link_to 'Edit', edit_roster_path(roster), class: 'btn btn-xs btn-warning'
-      %td= link_to 'Destroy', roster, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-xs btn-danger'
+      %td
+        = link_to 'Show', roster, class: 'btn btn-xs btn-info'
+        = link_to 'Edit', edit_roster_path(roster), class: 'btn btn-xs btn-warning'
+        = link_to 'Destroy', roster, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-xs btn-danger'
 
 %br
 
