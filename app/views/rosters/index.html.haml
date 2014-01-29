@@ -1,0 +1,21 @@
+%h1 Listing rosters
+
+%table
+  %tr
+    %th User
+    %th Draft
+    %th
+    %th
+    %th
+
+  - @rosters.each do |roster|
+    %tr
+      %td= roster.user_id
+      %td= roster.draft_id
+      %td= link_to 'Show', roster, class: 'btn btn-xs btn-info'
+      %td= link_to 'Edit', edit_roster_path(roster), class: 'btn btn-xs btn-warning'
+      %td= link_to 'Destroy', roster, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-xs btn-danger'
+
+%br
+
+= link_to 'New Roster', new_roster_path
