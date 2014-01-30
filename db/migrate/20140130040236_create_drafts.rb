@@ -3,8 +3,7 @@ class CreateDrafts < ActiveRecord::Migration
     create_table :drafts do |t|
       t.integer :year
       t.string :status
-      t.string :string
-
+      
       t.timestamps
     end
   end
