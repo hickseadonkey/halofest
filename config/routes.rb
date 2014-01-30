@@ -1,5 +1,7 @@
 Halofest::Application.routes.draw do
 
+  resources :drafts
+
   resources :rosters
 
   resources :players do

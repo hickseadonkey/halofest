@@ -1,0 +1,19 @@
+= form_for @draft do |f|
+  - if @draft.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@draft.errors.count, "error")} prohibited this draft from being saved:"
+      %ul
+        - @draft.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :year
+    = f.number_field :year
+  .field
+    = f.label :status
+    = f.text_field :status
+  .field
+    = f.label :string
+    = f.text_field :string
+  .actions
+    = f.submit 'Save'
