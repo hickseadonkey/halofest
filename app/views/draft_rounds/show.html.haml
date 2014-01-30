@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Round number:
+  = @draft_round.round_number
+%p
+  %b Draft:
+  = @draft_round.draft_id
+%p
+  %b Pick count:
+  = @draft_round.pick_count
+
+= link_to 'Edit', edit_draft_round_path(@draft_round)
+\|
+= link_to 'Back', draft_rounds_path

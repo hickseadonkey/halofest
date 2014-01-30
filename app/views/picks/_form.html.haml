@@ -1,0 +1,28 @@
+= form_for @pick do |f|
+  - if @pick.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@pick.errors.count, "error")} prohibited this pick from being saved:"
+      %ul
+        - @pick.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :user_id
+    = f.number_field :user_id
+  .field
+    = f.label :draft_round_id
+    = f.number_field :draft_round_id
+  .field
+    = f.label :pick_num
+    = f.number_field :pick_num
+  .field
+    = f.label :pick_kind
+    = f.text_field :pick_kind
+  .field
+    = f.label :pre_picked_player_id
+    = f.number_field :pre_picked_player_id
+  .field
+    = f.label :picked_player_id
+    = f.number_field :picked_player_id
+  .actions
+    = f.submit 'Save'

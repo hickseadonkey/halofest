@@ -1,0 +1,29 @@
+%h1 Listing picks
+
+%table
+  %tr
+    %th User
+    %th Draft round
+    %th Pick num
+    %th Pick kind
+    %th Pre picked player
+    %th Picked player
+    %th
+    %th
+    %th
+
+  - @picks.each do |pick|
+    %tr
+      %td= pick.user_id
+      %td= pick.draft_round_id
+      %td= pick.pick_num
+      %td= pick.pick_kind
+      %td= pick.pre_picked_player_id
+      %td= pick.picked_player_id
+      %td= link_to 'Show', pick
+      %td= link_to 'Edit', edit_pick_path(pick)
+      %td= link_to 'Destroy', pick, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Pick', new_pick_path

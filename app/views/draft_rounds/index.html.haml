@@ -1,0 +1,23 @@
+%h1 Listing draft_rounds
+
+%table
+  %tr
+    %th Round number
+    %th Draft
+    %th Pick count
+    %th
+    %th
+    %th
+
+  - @draft_rounds.each do |draft_round|
+    %tr
+      %td= draft_round.round_number
+      %td= draft_round.draft_id
+      %td= draft_round.pick_count
+      %td= link_to 'Show', draft_round
+      %td= link_to 'Edit', edit_draft_round_path(draft_round)
+      %td= link_to 'Destroy', draft_round, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Draft round', new_draft_round_path

@@ -1,5 +1,9 @@
 Halofest::Application.routes.draw do
 
+  resources :picks
+
+  resources :draft_rounds
+
   resources :drafts
 
   resources :rosters

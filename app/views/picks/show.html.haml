@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @pick.user_id
+%p
+  %b Draft round:
+  = @pick.draft_round_id
+%p
+  %b Pick num:
+  = @pick.pick_num
+%p
+  %b Pick kind:
+  = @pick.pick_kind
+%p
+  %b Pre picked player:
+  = @pick.pre_picked_player_id
+%p
+  %b Picked player:
+  = @pick.picked_player_id
+
+= link_to 'Edit', edit_pick_path(@pick)
+\|
+= link_to 'Back', picks_path
