@@ -1,10 +1,10 @@
 %h1 Listing drafts
 
-%table
+%table.table.table-striped
   %tr
     %th Year
     %th Status
-    %th String
+    %th
     %th
     %th
     %th
@@ -13,10 +13,11 @@
     %tr
       %td= draft.year
       %td= draft.status
-      %td= draft.string
-      %td= link_to 'Show', draft
-      %td= link_to 'Edit', edit_draft_path(draft)
-      %td= link_to 'Destroy', draft, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td
+      %td
+        = link_to 'Show', draft, class: "btn btn-xs btn-info"
+        = link_to 'Edit', edit_draft_path(draft), class: "btn btn-xs btn-warning"
+        = link_to 'Destroy', draft, :method => :delete, :data => { :confirm => 'Are you sure?' }, class:"btn btn-xs btn-danger"
 
 %br
 
