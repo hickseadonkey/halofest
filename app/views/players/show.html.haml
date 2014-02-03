@@ -5,6 +5,7 @@
   = @player.full_name
 = link_to "Edit", edit_player_path(@player), class: "btn btn-xs btn-warning"
 
+
 - if @player.player_stats.any?
   %h3 Stats
   %table.table.table-bordered.table-striped
@@ -27,6 +28,9 @@
 
   = link_to "New Stats Year", new_player_player_stat_path(@player), class: "btn btn-sm btn-primary"
 
+- else
+
+  = link_to "New Stats Year", new_player_player_stat_path(@player), class: "btn btn-sm btn-primary"
 %br
 %br
 = link_to "Back", players_path

@@ -17,9 +17,9 @@
     = f.number_field :year
   .field
     = f.label :fpts_total
-    = f.text_field :fpts_total
+    = f.text_field :fpts_total, :autocomplete => :off
   .field
     = f.label :fpts_avg
-    = f.text_field :fpts_avg
+    = f.text_field :fpts_avg, :autocomplete => :off
   .actions
     = f.submit 'Save'
