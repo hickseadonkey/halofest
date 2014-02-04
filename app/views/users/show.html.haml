@@ -1,6 +1,9 @@
 %p#notice= notice
 
 %p
+  %b ID:
+  = @user.id
+%p
   %b Name:
   = @user.name
 %p
@@ -12,6 +15,10 @@
 %p
   %b Is admin:
   = @user.is_admin
+
+%p
+  %b Roster:
+  =
 
 = link_to 'Edit', edit_user_path(@user)
 \|
