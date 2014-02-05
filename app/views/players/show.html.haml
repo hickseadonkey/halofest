@@ -3,6 +3,8 @@
 %p
   %b Name
   = @player.full_name
+
+
 = link_to "Edit", edit_player_path(@player), class: "btn btn-xs btn-warning"
 
 
@@ -14,6 +16,7 @@
         %th Year
         %th Fantasy Pts (total)
         %th Fantasy Pts (average)
+        %th
         %th
     %tbody
       - @player.player_stats.order("year DESC").each do |stats|
