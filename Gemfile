@@ -46,9 +46,10 @@ end
 
 group :development do
   gem 'rails-erd'
+  gem 'quiet_assets'
 end
 
-# Use ActiveModel has_secure_password
+  # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
