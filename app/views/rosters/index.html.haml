@@ -1,4 +1,4 @@
-%h1 Listing rosters
+%h1 Rosters
 
 %table.table.table-striped
   %tr
@@ -10,7 +10,7 @@
 
   - @rosters.each do |roster|
     %tr
-      %td= roster.user_id
+      %td= link_to roster.user.name, user_path(roster.user)
       %td= roster.draft_id
       %td
         = link_to 'Show', roster, class: 'btn btn-xs btn-info'
