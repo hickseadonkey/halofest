@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140205191750) do
+ActiveRecord::Schema.define(version: 20140205215115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20140205191750) do
   create_table "drafts", force: true do |t|
     t.integer  "year"
     t.string   "status"
-    t.string   "string"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -50,7 +49,6 @@ ActiveRecord::Schema.define(version: 20140205191750) do
     t.float    "fpts_avg"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.float    "assists"
     t.float    "fgm"
     t.float    "fga"
     t.float    "ftm"
@@ -70,12 +68,10 @@ ActiveRecord::Schema.define(version: 20140205191750) do
     t.datetime "updated_at"
   end
 
-  create_table "players_rosters", id: false, force: true do |t|
-    t.integer "player_id", null: false
-    t.integer "roster_id", null: false
+  create_table "players_rosters", force: true do |t|
+    t.integer "player_id"
+    t.integer "roster_id"
   end
-
-  add_index "players_rosters", ["player_id", "roster_id"], name: "index_players_rosters_on_player_id_and_roster_id", using: :btree
 
   create_table "rosters", force: true do |t|
     t.integer  "user_id"
