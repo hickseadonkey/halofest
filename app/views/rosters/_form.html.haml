@@ -11,13 +11,12 @@
       .field
         = f.label :user_id, class: "col-sm-2 control-label"
         .col-sm-10
-          = f.text_field :user_id, class:"form-control", required: true, :autocomplete => :off
+          = f.collection_select :user_id, User.all, :id, :name, {}, {class: 'form-control'}
 
       .field
         = f.label :draft_id, class: "col-sm-2 control-label"
         .col-sm-10
-          = f.text_field :draft_id, class:"form-control", required: true, :autocomplete => :off
-
+          = f.collection_select :draft_id, Draft.all, :id, :year, {}, {class: 'form-control'}
 
       .actions
-        = f.submit 'Save'
+        = f.submit 'Save', class: 'btn btn-primary'
