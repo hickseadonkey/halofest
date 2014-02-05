@@ -14,14 +14,33 @@
     %thead
       %tr
         %th Year
+        %th FGM
+        %th FGA
+        %th FTM
+        %th FTA
+        %th REB
+        %th AST
+        %th STL
+        %th BLK
+        %th TO
+        %th PTS
         %th Fantasy Pts (total)
         %th Fantasy Pts (average)
-        %th
         %th
     %tbody
       - @player.player_stats.order("year DESC").each do |stats|
         %tr
           %td= stats.year
+          %td= stats.fgm
+          %td= stats.fga
+          %td= stats.ftm
+          %td= stats.fta
+          %td= stats.reb
+          %td= stats.ast
+          %td= stats.stl
+          %td= stats.blk
+          %td= stats.to
+          %td= stats.pts
           %td= stats.fpts_total
           %td= stats.fpts_avg
           %td

@@ -16,10 +16,40 @@
     = f.label :year
     = f.number_field :year
   .field
+    = f.label :fgm
+    = f.text_field :fgm, :autocomplete => :off
+  .field
+    = f.label :fga
+    = f.text_field :fga, :autocomplete => :off
+  .field
+    = f.label :ftm
+    = f.text_field :ftm, :autocomplete => :off
+  .field
+    = f.label :fta
+    = f.text_field :fta, :autocomplete => :off
+  .field
+    = f.label :reb
+    = f.text_field :reb, :autocomplete => :off
+  .field
+    = f.label :ast
+    = f.text_field :ast, :autocomplete => :off
+  .field
+    = f.label :stl
+    = f.text_field :stl, :autocomplete => :off
+  .field
+    = f.label :blk
+    = f.text_field :blk, :autocomplete => :off
+  .field
+    = f.label :to
+    = f.text_field :to, :autocomplete => :off
+  .field
+    = f.label :pts
+    = f.text_field :pts, :autocomplete => :off
+  .field
     = f.label :fpts_total
     = f.text_field :fpts_total, :autocomplete => :off
   .field
     = f.label :fpts_avg
     = f.text_field :fpts_avg, :autocomplete => :off
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: 'btn btn-primary'

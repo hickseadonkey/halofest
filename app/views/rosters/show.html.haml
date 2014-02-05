@@ -2,10 +2,46 @@
 
 %p
   %b User:
-  = @roster.user_id
+  = @roster.user.name
 %p
   %b Draft:
   = @roster.draft_id
+
+%table.table.table-striped.table-bordered.table-condensed
+  %thead
+    %th Name
+    %th Year
+    %th FGM
+    %th FGA
+    %th FTM
+    %th FTA
+    %th REB
+    %th AST
+    %th STL
+    %th BLK
+    %th TO
+    %th PTS
+    %th Fantasy Pts (total)
+    %th Fantasy Pts (average)
+  %tbody
+    - @roster.players.each do |player|
+      %tr
+        %td= player.full_name
+        - stats = player.player_stats.first
+        - unless stats.blank?
+          %td= stats.year
+          %td= stats.fgm
+          %td= stats.fga
+          %td= stats.ftm
+          %td= stats.fta
+          %td= stats.reb
+          %td= stats.ast
+          %td= stats.stl
+          %td= stats.blk
+          %td= stats.to
+          %td= stats.pts
+          %td= stats.fpts_total
+          %td= stats.fpts_avg
 
 = link_to 'Edit', edit_roster_path(@roster)
 \|

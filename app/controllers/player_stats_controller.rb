@@ -48,6 +48,10 @@ class PlayerStatsController < ApplicationController
   end
 
   def player_stat_params
-    params.require(:player_stats).permit(:year, :fpts_total, :fpts_avg)
+    params.require(:player_stats).permit(
+      :year,
+      :fgm, :fga, :ftm, :fta, :reb, :ast, :stl, :blk, :to, :pts,
+      :fpts_total, :fpts_avg
+    )
   end
 end
