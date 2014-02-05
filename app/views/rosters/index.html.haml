@@ -11,7 +11,7 @@
   - @rosters.each do |roster|
     %tr
       %td= link_to roster.user.name, user_path(roster.user)
-      %td= roster.draft_id
+      %td= roster.draft.year
       %td
         = link_to 'Show', roster, class: 'btn btn-xs btn-info'
         = link_to 'Edit', edit_roster_path(roster), class: 'btn btn-xs btn-warning'

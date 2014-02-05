@@ -10,7 +10,7 @@
 
   - @users.each do |user|
     %tr
-      %td= user.name
+      %td= link_to user.name, user_path(user)
       %td= user.email
       %td= user.team_name
       %td= tick_helper(user.is_admin)

@@ -26,8 +26,8 @@
   %tbody
     - @roster.players.each do |player|
       %tr
-        %td= player.full_name
-        - stats = player.player_stats.first
+        %td= link_to player.full_name, player_path(player)
+        - stats = player.player_stats.where(year: @roster.draft.year).first
         - unless stats.blank?
           %td= stats.year
           %td= stats.fgm

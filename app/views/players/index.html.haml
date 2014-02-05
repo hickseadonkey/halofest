@@ -2,16 +2,12 @@
 
 %table.table.table-striped
   %tr
-    %th First name
-    %th Last name
-    %th
-    %th
+    %th Name
     %th
 
   - @players.each do |player|
     %tr
-      %td= player.first_name
-      %td= player.last_name
+      %td= link_to player.full_name, player_path(player)
       %td
         = link_to 'Show', player, class: 'btn btn-xs btn-info'
         = link_to 'Edit', edit_player_path(player), class: 'btn btn-xs btn-warning'
