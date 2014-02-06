@@ -35,7 +35,7 @@ class Importer
   end
 
   def import_player_stats(year)
-    worksheet_title = "#{year} Player Stats"
+    worksheet_title = stats_worksheet_title_for_year(year)
     worksheet = spreadsheet.worksheet_by_title worksheet_title
     for rownum in 2..worksheet.num_rows
       first_name = worksheet[rownum, PLAYER_COLS[:first_name]].strip.humanize
@@ -50,6 +50,22 @@ class Importer
     end
   end
 
+  def create_rosters_for_year(year)
+    draft = Draft.find_by_year year
+    create_id_to_user_map
+    worksheet_title = stats_worksheet_title_for_year year
+    worksheet = spreadsheet.worksheet_by_title worksheet_title
+    for rownum in 2..worksheet.num_rows
+      first_name = worksheet[rownum, PLAYER_COLS[:first_name]].strip.humanize
+      last_name  = worksheet[rownum, PLAYER_COLS[:last_name]].strip.humanize
+      player = Player.find_by(first_name: first_name, last_name: last_name)
+      id_of_user_who_owns_player = worksheet[rownum, 5]
+      user = @id_to_user_map[id_of_user_who_owns_player]
+      roster = Roster.find_or_create_by(user_id: user.id, draft_id: draft.id)
+      roster.players << player unless roster.players.include?(player)
+    end
+  end
+
   private
 
   def session
@@ -60,5 +76,22 @@ class Importer
 
   def spreadsheet
     @spreadsheet ||= session.spreadsheet_by_key @ssheet_key
+  end
+
+  # Create a hash of :id => User
+  def create_id_to_user_map
+    worksheet = spreadsheet.worksheet_by_title('TeamID')
+    @id_to_user_map = {}
+    for rownum in 2..worksheet.num_rows
+      id = worksheet[rownum,1]
+      name = worksheet[rownum,2]
+      email = worksheet[rownum,3]
+      user = User.find_by_email email
+      @id_to_user_map[id] = user
+    end
+  end
+
+  def stats_worksheet_title_for_year(year)
+    "#{year} Player Stats"
   end
 end
