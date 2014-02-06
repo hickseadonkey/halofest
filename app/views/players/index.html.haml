@@ -3,11 +3,38 @@
 %table.table.table-striped
   %tr
     %th Name
+    %th Year
+    %th FGM
+    %th FGA
+    %th FTM
+    %th FTA
+    %th REB
+    %th AST
+    %th STL
+    %th BLK
+    %th TO
+    %th PTS
+    %th FPTS TOT
+    %th FPTS AVG
     %th
 
   - @players.each do |player|
     %tr
       %td= link_to player.full_name, player_path(player)
+      - stats = player.player_stats.order("year DESC").first
+      %td= stats.try :year
+      %td= stats.try :fgm
+      %td= stats.try :fga
+      %td= stats.try :ftm
+      %td= stats.try :fta
+      %td= stats.try :reb
+      %td= stats.try :ast
+      %td= stats.try :stl
+      %td= stats.try :blk
+      %td= stats.try :to
+      %td= stats.try :pts
+      %td= stats.try :fpts_total
+      %td= stats.try :fpts_avg
       %td
         = link_to 'Show', player, class: 'btn btn-xs btn-info'
         = link_to 'Edit', edit_player_path(player), class: 'btn btn-xs btn-warning'
