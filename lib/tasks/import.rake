@@ -18,4 +18,10 @@ namespace :import do
   task :rosters => :environment do
     importer.create_rosters_for_year ENV['YEAR']
   end
+
+  desc "Create drafts for year YEAR="
+  task :drafts => :environment do
+    importer.create_drafts_for_year ENV['YEAR']
+  end
+
 end
