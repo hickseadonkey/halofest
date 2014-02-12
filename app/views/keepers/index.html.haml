@@ -1,0 +1,17 @@
+%h1 Listing keepers
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @keepers.each do |keeper|
+    %tr
+      %td= link_to 'Show', keeper
+      %td= link_to 'Edit', edit_keeper_path(keeper)
+      %td= link_to 'Destroy', keeper, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Keeper', new_keeper_path

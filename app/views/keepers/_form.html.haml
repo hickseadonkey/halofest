@@ -1,0 +1,10 @@
+= form_for @keeper do |f|
+  - if @keeper.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@keeper.errors.count, "error")} prohibited this keeper from being saved:"
+      %ul
+        - @keeper.errors.full_messages.each do |msg|
+          %li= msg
+
+  .actions
+    = f.submit 'Save'
