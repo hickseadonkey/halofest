@@ -68,9 +68,15 @@
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
       function drawChart() {
-        var fpts = @player_stats.fpts_avg_to_a
-        var data = google.visualization.arrayToDataTable()
-
+        var data = google.visualization.arrayToDataTable([
+                  ['Age', 'Weight'],
+                  [ 8,      12],
+                  [ 4,      5.5],
+                  [ 11,     14],
+                  [ 4,      5],
+                  [ 3,      3.5],
+                  [ 6.5,    7]
+                ]);
 
 
 
