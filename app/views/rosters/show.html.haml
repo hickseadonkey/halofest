@@ -23,6 +23,8 @@
     %th PTS
     %th Fantasy Pts (total)
     %th Fantasy Pts (average)
+    %th Keeper?
+    %th Keeper Cost
   %tbody
     - @roster.players.each do |player|
       %tr
@@ -42,6 +44,8 @@
           %td= stats.pts
           %td= stats.fpts_total
           %td= stats.fpts_avg
+          %td
+          %td
 
 = link_to 'Edit', edit_roster_path(@roster), class: 'btn btn-xs btn-warning'
 \|
