@@ -36,6 +36,7 @@ end
 gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'google_drive'
+gem 'gchartrb'
 
 group :production do
   gem 'rails_12factor'
