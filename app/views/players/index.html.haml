@@ -21,7 +21,7 @@
   - @players.each do |player|
     %tr
       %td= link_to player.full_name, player_path(player)
-      - stats = player.player_stats.order("year DESC").first
+      - stats = player.player_stats.sort { |player| player.year }.last
       %td= stats.try :year
       %td= stats.try :fgm
       %td= stats.try :fga
