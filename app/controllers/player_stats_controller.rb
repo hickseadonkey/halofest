@@ -1,6 +1,6 @@
 class PlayerStatsController < ApplicationController
   before_action :load_player
-  before_action :admin_user, only: only: [:edit, :update, :destroy]
+  before_action :admin_user, only: [:edit, :update, :destroy]
 
   # GET /player_stats/new
   def new

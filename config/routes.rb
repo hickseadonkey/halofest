@@ -14,6 +14,8 @@ Halofest::Application.routes.draw do
     resources :player_stats, except:[:show]
   end
 
+  resources :sessions, only: [:new, :create, :destroy]
+
   resources :users
 
   root "home#index"
