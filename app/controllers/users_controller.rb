@@ -1,5 +1,7 @@
 class UsersController < LoggedInController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :correct_user,   only: [:edit, :update]
+  before_action :admin_user, only: :destroy
 
   # GET /users
   # GET /users.json
@@ -61,6 +63,10 @@ class UsersController < LoggedInController
     end
   end
 
+
+
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -72,3 +78,12 @@ class UsersController < LoggedInController
       params.require(:user).permit(:name, :email, :team_name, :is_admin)
     end
 end
+
+    def correct_user
+      @user = User.find(params[id])
+      redirect_to(root_url) unless current_user.admin?
+    end
+
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
+  end
