@@ -1,6 +1,6 @@
 class PlayerStatsController < ApplicationController
   before_action :load_player
-  before_action :load_player_stat, only: [:edit, :update, :destroy]
+  before_action :admin_user, only: only: [:edit, :update, :destroy]
 
   # GET /player_stats/new
   def new
@@ -41,6 +41,10 @@ class PlayerStatsController < ApplicationController
 
   def load_player
     @player = Player.find params[:player_id]
+  end
+
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
   end
 
   def load_player_stat
