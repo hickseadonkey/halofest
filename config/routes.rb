@@ -1,5 +1,7 @@
 Halofest::Application.routes.draw do
 
+  devise_for :users
+
   resources :keepers
 
   resources :picks
