@@ -1,4 +1,4 @@
-class RostersController < ApplicationController
+class RostersController < LoggedInController
   before_action :set_roster, only: [:show, :edit, :update, :destroy]
 
   # GET /rosters

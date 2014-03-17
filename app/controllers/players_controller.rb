@@ -1,4 +1,4 @@
-class PlayersController < ApplicationController
+class PlayersController < LoggedInController
   before_action :set_player, only: [:show, :edit, :update, :destroy]
 
   # GET /players

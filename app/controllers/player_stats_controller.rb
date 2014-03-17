@@ -1,4 +1,4 @@
-class PlayerStatsController < ApplicationController
+class PlayerStatsController < LoggedInController
   before_action :load_player
   before_action :load_player_stat, only: [:edit, :update, :destroy]
 
