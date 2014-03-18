@@ -39,3 +39,6 @@
         = link_to 'Show', player, class: 'btn btn-xs btn-info'
         = link_to 'Edit', edit_player_path(player), class: 'btn btn-xs btn-warning'
         = link_to 'Destroy', player, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-xs btn-danger'
+
+%script{type:'application/javascript'}
+window.data = #{@players.first.to_json.html_safe};

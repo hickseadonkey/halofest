@@ -8,4 +8,10 @@ class Player < ActiveRecord::Base
   def full_name
     [first_name, last_name].reject(&:blank?).join(" ")
   end
+
+  def as_json(options={})
+        {
+          fpts_total: player_stats.map { |ps| { ps.year => ps.fpts_total } }
+        }
+    end
 end
