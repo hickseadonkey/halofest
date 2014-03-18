@@ -1,7 +1,16 @@
 class User < ActiveRecord::Base
+<<<<<<< HEAD
   before_save { self.email = email.downcase }
   before_create :create_remember_token
   validates :name, presence: true, length: { maximum: 50 }
+=======
+  # Include default devise modules. Others available are:
+  # :registerable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :confirmable,
+         :recoverable, :rememberable, :trackable, :validatable, :lockable
+
+  validates :name, presence: true
+>>>>>>> 4d6b4168b8e32a6372a5f8bde7f594beec78bbf0
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false}

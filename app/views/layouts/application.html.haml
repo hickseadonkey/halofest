@@ -15,6 +15,16 @@
   %body
     .container
       = render 'layouts/navbar'
+
+      - flash.each do |type, msg|
+        .alert{ class: "alert-#{type.to_s == 'notice' ? 'success' : 'danger'}" }
+          %button.close{ type: 'button',
+                         data: { dismiss: 'alert'},
+                         'aria-hidden' => 'true'}
+            &times;
+
+          = msg.gsub("\n", '<br>').html_safe
+
       = yield
 
   #load_javascripts

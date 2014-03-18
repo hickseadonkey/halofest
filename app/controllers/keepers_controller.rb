@@ -1,4 +1,4 @@
-class KeepersController < ApplicationController
+class KeepersController < LoggedInController
   before_action :set_keeper, only: [:show, :edit, :update, :destroy]
 
   # GET /keepers

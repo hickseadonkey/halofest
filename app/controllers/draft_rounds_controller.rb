@@ -1,4 +1,4 @@
-class DraftRoundsController < ApplicationController
+class DraftRoundsController < LoggedInController
   before_action :set_draft_round, only: [:show, :edit, :update, :destroy]
 
   # GET /draft_rounds

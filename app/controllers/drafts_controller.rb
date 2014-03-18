@@ -1,4 +1,4 @@
-class DraftsController < ApplicationController
+class DraftsController < LoggedInController
   before_action :set_draft, only: [:show, :edit, :update, :destroy]
 
   # GET /drafts
